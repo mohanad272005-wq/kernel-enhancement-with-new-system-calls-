@@ -195,9 +195,8 @@ UPROGS=\
 	$U/_logstress\
 	$U/_forphan\
 	$U/_dorphan\
-
-
-
+	$U/_forkexec\
+	$U/_testproc
 ifeq ($(LAB),util)
 UPROGS += \
 	$U/_sleep\
