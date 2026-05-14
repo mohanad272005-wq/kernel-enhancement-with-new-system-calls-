@@ -107,3 +107,13 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+uint64
+sys_sysinfo(void)
+{
+  printf("Processes: %d\n", 0);
+  printf("Free Memory: %d\n", 0);
+  printf("Max PID: %d\n", 0);
+  printf("Uptime: %d\n", 0);
+  printf("write syscall count: %d\n", 0);
+  return 0;
+}
