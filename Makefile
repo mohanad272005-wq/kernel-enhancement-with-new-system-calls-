@@ -195,15 +195,10 @@ UPROGS=\
 	$U/_logstress\
 	$U/_forphan\
 	$U/_dorphan\
-	$U/_forkexec\
-	$U/_testproc
-ifeq ($(LAB),util)
-UPROGS += \
-	$U/_sleep\
-	$U/_sixfive\
-	$U/_find
-endif
-### ENDIF
+        $U/_syscount\
+
+
+
 
 
 ifeq ($(LAB),syscall)
@@ -284,9 +279,7 @@ ifeq ($(LAB),util)
 	UEXTRA += user/sixfive.txt
 	UPROGS += $U/_memdump
 endif
-ifeq ($(LAB),syscall)
-	UEXTRA += user/exec.sh
-endif
+
 
 fs.img: mkfs/mkfs README $(UEXTRA) $(UPROGS)
 	mkfs/mkfs fs.img README $(UEXTRA) $(UPROGS)
