@@ -39,6 +39,7 @@ Please send errors and suggestions to Frans Kaashoek and Robert Morris
 (kaashoek,rtm@mit.edu).  The main purpose of xv6 is as a teaching
 operating system for MIT's 6.1810, so we are more interested in
 simplifications and clarifications than new features.
+Final version by Nedaa
 
 BUILDING AND RUNNING XV6
 
