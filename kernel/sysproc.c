@@ -6,7 +6,9 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "vm.h"
-
+uint64 sys_getnproc(void);
+uint64 sys_getfreemem(void);
+uint64 sys_getmaxpid(void);
 uint64
 sys_exit(void)
 {
@@ -110,10 +112,10 @@ sys_uptime(void)
 uint64
 sys_sysinfo(void)
 {
-  printf("Processes: %d\n", 0);
-  printf("Free Memory: %d\n", 0);
-  printf("Max PID: %d\n", 0);
-  printf("Uptime: %d\n", 0);
+  printf("Processes: %ld\n",sys_getnproc());
+  printf("Free Memory: %ld\n", sys_getfreemem());
+  printf("Max PID: %ld\n", sys_getmaxpid());
+  printf("Uptime: %lu\n", sys_uptime());
   printf("write syscall count: %d\n", 0);
   return 0;
 }

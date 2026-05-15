@@ -101,6 +101,7 @@ extern uint64 sys_unlink(void);
 extern uint64 sys_link(void);
 extern uint64 sys_mkdir(void);
 extern uint64 sys_close(void);
+extern uint64 sys_sysinfo(void);
 extern uint64 sys_getnproc(void);
 extern uint64 sys_getmaxpid(void);
 // An array mapping syscall numbers from syscall.h
@@ -149,4 +150,3 @@ syscall(void)
     p->trapframe->a0 = -1;
   }
 }
-extern uint64 sys_sysinfo(void);

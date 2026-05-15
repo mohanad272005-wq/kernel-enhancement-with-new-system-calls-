@@ -198,7 +198,6 @@ UPROGS=\
 		$U/_sysinfo\
 	$U/_forphan\
 	$U/_dorphan\
-        $U/_syscount\
 
 
 
