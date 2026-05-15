@@ -39,6 +39,7 @@ entry("mkdir");
 entry("chdir");
 entry("dup");
 entry("getpid");
+entry("getprocinfo");
 entry("sbrk");
 entry("pause");
 entry("uptime");

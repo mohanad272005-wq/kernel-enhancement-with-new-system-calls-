@@ -685,3 +685,31 @@ procdump(void)
     printf("\n");
   }
 }
+
+
+
+int
+getprocinfo(int pid, struct procinfo *info)
+{
+  struct proc *p;
+
+  if(info == 0)
+    return -1;
+
+  for(p = proc; p < &proc[NPROC]; p++){
+    acquire(&p->lock);
+    if(p->pid == pid && p->state != UNUSED){
+      struct procinfo tmp;
+      tmp.pid   = p->pid;
+      tmp.sz    = p->sz;
+      tmp.ppid  = p->parent ? p->parent->pid : 0;
+      tmp.state = p->state;
+      safestrcpy(tmp.name, p->name, sizeof(tmp.name));
+      release(&p->lock);
+      copyout(myproc()->pagetable, (uint64)info, (char*)&tmp, sizeof(tmp));
+      return 0;
+    }
+    release(&p->lock);
+  }
+  return -1;
+}
