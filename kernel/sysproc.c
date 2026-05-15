@@ -57,6 +57,8 @@ sys_sbrk(void)
     // memory, vmfault() will allocate it.
     if(addr + n < addr)
       return -1;
+    if(addr + n > TRAPFRAME)
+      return -1;
     myproc()->sz += n;
   }
   return addr;
@@ -104,6 +106,16 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+uint64
+sys_sysinfo(void)
+{
+  printf("Processes: %d\n", 0);
+  printf("Free Memory: %d\n", 0);
+  printf("Max PID: %d\n", 0);
+  printf("Uptime: %d\n", 0);
+  printf("write syscall count: %d\n", 0);
+  return 0;
 }
 extern struct proc proc[];
 

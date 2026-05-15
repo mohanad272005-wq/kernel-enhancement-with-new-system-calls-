@@ -127,6 +127,7 @@ static uint64 (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+    [SYS_sysinfo]  sys_sysinfo,
 [SYS_getnproc]   sys_getnproc,
 [SYS_getmaxpid]  sys_getmaxpid,
 };
@@ -148,3 +149,4 @@ syscall(void)
     p->trapframe->a0 = -1;
   }
 }
+extern uint64 sys_sysinfo(void);

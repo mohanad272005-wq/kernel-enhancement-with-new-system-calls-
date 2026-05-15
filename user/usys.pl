@@ -42,5 +42,6 @@ entry("getpid");
 entry("sbrk");
 entry("pause");
 entry("uptime");
+entry("sysinfo");
 entry("getnproc");
 entry("getmaxpid");
