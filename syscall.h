@@ -20,6 +20,4 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
-#define SYS_sysinfo 24
-#define SYS_getnproc  22
-#define SYS_getmaxpid 23
+#define SYS_getsyscount 22
