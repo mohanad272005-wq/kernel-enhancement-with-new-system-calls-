@@ -105,3 +105,29 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+extern struct proc proc[];
+
+uint64
+sys_getnproc(void)
+{
+  struct proc *p;
+  int count = 0;
+  for(p = proc; p < &proc[NPROC]; p++){
+    if(p->state != UNUSED)
+      count++;
+  }
+  return count;
+}
+
+uint64
+sys_getmaxpid(void)
+{
+  struct proc *p;
+  int maxpid = 0;
+  for(p = proc; p < &proc[NPROC]; p++){
+    if(p->state != UNUSED && p->pid > maxpid)
+      maxpid = p->pid;
+  }
+  return maxpid;
+}
+
